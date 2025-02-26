@@ -27,4 +27,7 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<Car> Cars { get; set; } = null!;
     public DbSet<Engine> Engines { get; set; } = null!;
+    public DbSet<Make> Makes { get; set; } = null!;
+    public DbSet<Model> Models { get; set; } = null!;
+    public DbSet<Country> Countries { get; set; } = null!;
 }

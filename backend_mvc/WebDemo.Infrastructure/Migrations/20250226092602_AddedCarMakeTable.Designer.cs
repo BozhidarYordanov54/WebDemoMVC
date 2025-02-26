@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebDemo.Infrastrucutre.Data;
 
@@ -11,9 +12,11 @@ using WebDemo.Infrastrucutre.Data;
 namespace WebDemo.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250226092602_AddedCarMakeTable")]
+    partial class AddedCarMakeTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,15 +239,8 @@ namespace WebDemo.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Descirption")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("EngineId")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsAWD")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsAutomatic")
                         .HasColumnType("bit");
@@ -258,8 +254,9 @@ namespace WebDemo.Infrastructure.Migrations
                     b.Property<int>("MakeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ModelId")
-                        .HasColumnType("int");
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Odometer")
                         .HasColumnType("int");
@@ -284,8 +281,6 @@ namespace WebDemo.Infrastructure.Migrations
 
                     b.HasIndex("MakeId");
 
-                    b.HasIndex("ModelId");
-
                     b.HasIndex("OwnerId");
 
                     b.ToTable("Cars");
@@ -303,7 +298,7 @@ namespace WebDemo.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Country");
                 });
 
             modelBuilder.Entity("WebDemo.Infrastructure.Data.Models.Engine", b =>
@@ -364,29 +359,7 @@ namespace WebDemo.Infrastructure.Migrations
 
                     b.HasIndex("CountryId");
 
-                    b.ToTable("Makes");
-                });
-
-            modelBuilder.Entity("WebDemo.Infrastructure.Data.Models.Model", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("MakeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MakeId");
-
-                    b.ToTable("Models");
+                    b.ToTable("Make");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -454,12 +427,6 @@ namespace WebDemo.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebDemo.Infrastructure.Data.Models.Model", "Model")
-                        .WithMany()
-                        .HasForeignKey("ModelId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Owner")
                         .WithMany()
                         .HasForeignKey("OwnerId")
@@ -469,8 +436,6 @@ namespace WebDemo.Infrastructure.Migrations
                     b.Navigation("Engine");
 
                     b.Navigation("Make");
-
-                    b.Navigation("Model");
 
                     b.Navigation("Owner");
                 });
@@ -484,18 +449,6 @@ namespace WebDemo.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-                });
-
-            modelBuilder.Entity("WebDemo.Infrastructure.Data.Models.Model", b =>
-                {
-                    b.HasOne("WebDemo.Infrastructure.Data.Models.Make", null)
-                        .WithMany("Models")
-                        .HasForeignKey("MakeId");
-                });
-
-            modelBuilder.Entity("WebDemo.Infrastructure.Data.Models.Make", b =>
-                {
-                    b.Navigation("Models");
                 });
 #pragma warning restore 612, 618
         }
