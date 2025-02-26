@@ -35,11 +35,7 @@
     color: #6b6b6b;
 }
 
-.container .item.auth-login a{
-    background: #000000;
-    color: #ffffff;
 
-}
 
 .container:first-child{
     border: none;
