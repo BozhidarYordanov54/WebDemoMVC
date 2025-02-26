@@ -1,0 +1,76 @@
+:root{
+    --text-color: #0f0f0f;
+    --bg-color: #ededed;
+}
+
+.site-header{
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    border-radius: 99999px;
+}
+
+.brand-name{
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.site-header .logo-wrapper{
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    padding-left: 1em;
+}
+
+.site-header .logo-wrapper .img-wrapper{
+    width: 100px;
+}
+
+.site-header .logo-wrapper .img-wrapper img{
+    width: 100%;
+}
+
+
+
+.site-header .site-nav .nav-items{
+    display: flex;
+    list-style-type: none;
+    gap: 1em;
+}
+
+.site-header .site-nav .nav-items li a{
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.site-header .site-nav .nav-items .auth-login a{
+    background: #0f0f0f;
+    padding: 0.5em 1em;
+    border-radius: 99999px;
+    color: #ffffff;
+}
+
+.site-header .site-nav .nav-items li a::after{
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 2px;
+    bottom: 0px;
+    left: 0;
+    background-color: var(--text-color);
+    transition: width 0.2s ease-in;
+}
+
+.site-header .site-nav .nav-items li a:hover::after{
+    width: 100%;
+}

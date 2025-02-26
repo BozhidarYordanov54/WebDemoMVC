@@ -1,0 +1,144 @@
+.site-footer{
+    padding: 0.5em 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-top: 2px solid #aeaeae;
+    background-color: var(--bg-color);
+}
+
+.img-wrapper{
+    width: 100px;
+}
+
+.img-wrapper img{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    flex: 1;
+    padding: 1em;
+    border-left: 2px solid #c1bfbf;
+}
+
+.container ul{
+    list-style-type: none;
+}
+
+.container ul li a{
+    text-decoration: none;
+    color: #6b6b6b;
+}
+
+.container .item.auth-login a{
+    background: #000000;
+    color: #ffffff;
+
+}
+
+.container:first-child{
+    border: none;
+    text-align: center;
+}
+
+.site-footer .brand-name{
+    text-align: center;
+}
+
+.container .social-media{
+    display: flex;
+    gap: 0.5em;
+}
+
+.container.contacts .contacts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.2em;
+}
+
+.newsletter-form{
+    display: flex;
+    gap: 0.5em;
+}
+
+.newsletter-form button[type="submit"]{
+    display: flex;
+    gap: 0.2em;
+    align-items: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: #DD2A7B;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    color: #ffffff;
+}
+
+.newsletter-form button[type="submit"] i{
+    font-size: 12px;
+}
+
+.input-wrapper{
+    position: relative;
+}
+
+.input-wrapper input[type="text"]{
+    outline: none;
+    border: none;
+    width: 200px;
+    height: 30px;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+
+.input-wrapper label{
+    position: absolute;
+    left: 0.5em;
+    color: #6b6b6b;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border-radius: 5px;
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+}
+
+.input-wrapper input[type="text"]:focus + label{
+    top: -0.5em;
+    font-size: 12px;
+    color: #000000;
+    padding: 0.2em 0.5em;
+}
+
+.site-footer i{
+    font-size: 1.5em;
+}
+
+.site-footer .fa-facebook{
+    color: #1877F2;
+    transition: color 0.2s ease-in;
+}
+
+.site-footer .fa-facebook:hover{
+    color: #166bda;
+}
+
+.site-footer .fa-youtube{
+    color: #ff0000;
+    transition: color 0.2s ease-in;
+}
+
+.site-footer .fa-youtube:hover{
+    color: #d30202;
+}
+
+.site-footer .fa-instagram{
+    color: #DD2A7B;
+}
+
