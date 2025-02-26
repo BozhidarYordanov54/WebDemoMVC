@@ -1,0 +1,10 @@
+# Removing dotnet obj and bin files
+backend_mvc/WebDemo/obj
+backend_mvc/WebDemo/bin
+
+backend_mvc/WebDemo.Core/obj
+backend_mvc/WebDemo.Core/bin
+
+backend_mvc/WebDemo.Infrastructure/obj
+backend_mvc/WebDemo.Infrastructure/bin
+
