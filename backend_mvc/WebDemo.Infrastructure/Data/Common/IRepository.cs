@@ -15,14 +15,11 @@ namespace WebDemo.Infrastructure.Data.Common
         //* AddRange(IEnumerable<T> entities)
         public Task AddRangeAsync<T>(IEnumerable<T> entities) where T : class;
 
-        //? Update(T entity)
-        public Task UpdateAsync<T>(T entity) where T : class;
-
         //? FindById(int id)
-        public Task<T> FindByIdAsync<T>(int id) where T : class;
+        public Task<T> FindByIdAsync<T>(object id) where T : class;
 
         //! Delete(T entity)
-        public Task DeleteAsync<T>(T entity) where T : class;
+        public Task DeleteAsync<T>(object entity) where T : class;
 
         //* SaveChanges()
         public Task SaveChangesAsync();
